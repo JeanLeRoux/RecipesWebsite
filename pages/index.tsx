@@ -1,53 +1,99 @@
-export default function Home({ cocktails, dinners }) {
-  console.log(dinners);
+import Navbar from "../components/Navbar";
+
+export default function Home() {
   return (
-    <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="text-2xl font-extrabold text-gray-900">Cocktails</h2>
+    <div>
+      <Navbar />
+      <div className="relative bg-white overflow-hidden">
+        <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
+            <div className="sm:max-w-lg">
+              <h1 className="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
+                Struggling for ideas
+              </h1>
+              <p className="mt-4 text-xl text-gray-500">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo. Nunc id cursus metus aliquam eleifend mi in nulla posuere. Odio facilisis mauris sit amet massa vitae tortor. Quam id leo in vitae turpis massa sed elementum. Neque laoreet suspendisse interdum consectetur libero. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Vel turpis nunc eget lorem dolor. Dui nunc mattis enim ut.
+              </p>
+            </div>
+            <div>
+              <div className="mt-10">
+                {/* Decorative image grid */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-auto lg:w-full"
+                >
+                  <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                    <div className="flex items-center space-x-6 lg:space-x-8">
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
+                          <img
+                            src="/assets/1.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="/assets/2.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="/assets/3.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="/assets/4.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="/assets/5.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="/assets/6.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="/assets/7.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-6">
-          {cocktails.Recipes.map((cocktail) => (
-            <a href="#" className="group" key={cocktail.Id}>
-              <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                <img
-                  src={cocktail.Image}
-                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                  className="w-full h-full object-center object-cover group-hover:opacity-75"
-                />
+                <a
+                  href="#"
+                  className="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700"
+                >
+                  Shop Collection
+                </a>
               </div>
-              <h3 className="mt-4 text-sm text-gray-700">{cocktail.Name}</h3>
-            </a>
-          ))}
-        </div>
-      </div>
-      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="text-2xl font-extrabold text-gray-900">Dinners</h2>
-
-        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-6">
-          {dinners.Recipes.map((dinner) => (
-            <a href="#" className="group" key={dinner.Id}>
-              <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                <img
-                  src={dinner.Image}
-                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                  className="w-full h-full object-center object-cover group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">{dinner.Name}</h3>
-            </a>
-          ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-}
-export async function getStaticProps(context) {
-  const res = await fetch("https://golang-food-api.herokuapp.com/getCocktails");
-  const cocktails = await res.json();
-  const dinnerResponse = await fetch("https://golang-food-api.herokuapp.com/getDinner");
-  const dinners = await dinnerResponse.json();
-  
-  return {
-    props: { cocktails, dinners }, // props will be passed to the page
-  };
 }
