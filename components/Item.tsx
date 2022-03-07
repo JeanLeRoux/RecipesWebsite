@@ -165,7 +165,7 @@ export default function Item({ data }) {
                         <div className="border-t border-gray-200">
                           <dl>
                             {ingredientHeadings.map((heading, index) => (
-                              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6" key={heading}>
                                 <dt className="text-sm font-medium text-gray-500">
                                   {heading}
                                 </dt>
@@ -174,8 +174,8 @@ export default function Item({ data }) {
                                     role="list"
                                     className="border border-gray-200 rounded-md divide-y divide-gray-200"
                                   >
-                                    {ingredients[index].map((ingredient) => (
-                                      <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                                    {ingredients[index].map((ingredient, index) => (
+                                      <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm" key={index}>
                                         {ingredient}
                                       </li>
                                     ))}
