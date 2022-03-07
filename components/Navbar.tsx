@@ -12,6 +12,17 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 export default function Navbar() {
+
+  const handleClick = (name: string): void => {
+    for (let index = 0; index < navigation.length; index++) {
+      navigation[index].current = false;
+      if (navigation[index].name == name){
+        navigation[index].current = true;
+      }
+      
+    }
+  }
+  
   return (
     <div>
     <Disclosure as="nav" className="bg-gray-800">
@@ -52,6 +63,7 @@ export default function Navbar() {
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
+                        onClick={()=>handleClick(item.name)}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
@@ -67,10 +79,9 @@ export default function Navbar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
+                <Link href={item.href} key={item.name}>
+                <a
+                  onClick={()=>handleClick(item.name)}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
@@ -78,7 +89,8 @@ export default function Navbar() {
                   aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
-                </Disclosure.Button>
+                </a>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>
@@ -88,3 +100,4 @@ export default function Navbar() {
     </div>
   );
 }
+

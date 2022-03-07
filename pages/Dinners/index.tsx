@@ -5,7 +5,7 @@ export default function Dinners({ dinners }) {
   return (
     <div>
       <Navbar />
-      <Item data={dinners}/>
+      <Item data={dinners} pageHeading="Dinner"/>
     </div>
   );
 }

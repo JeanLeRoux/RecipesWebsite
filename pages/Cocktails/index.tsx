@@ -10,7 +10,7 @@ export default function Home({ cocktails }) {
   return (
     <div>
       <Navbar />
-        <Item data={cocktails}/>
+        <Item data={cocktails} pageHeading="Coctails"/>
     </div>
   );
 }
