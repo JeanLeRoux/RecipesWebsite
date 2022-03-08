@@ -1,24 +1,41 @@
 import Navbar from "../../components/Navbar";
-import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { PaperClipIcon, StarIcon, XIcon } from "@heroicons/react/outline";
+import { useState } from "react";
 import Item from "../../components/Item";
 
-export default function Home({ cocktails }) {
+export default function Home({ recipes }) {
+  const [cocktailsData, setCocktailsData] = useState(recipes);
+  const [lastId, setLastId] = useState(10);
 
+  const fetchData = async () => {
+    let url =
+      "https://golang-food-api.herokuapp.com/getCocktails?LastId=" + lastId;
+    console.log(cocktailsData);
+    const req = await fetch(url);
+    const newData = await req.json();
+    setLastId(newData.LastId);
+    return setCocktailsData([...cocktailsData, ...newData.Recipes]);
+  };
+
+  const handleClick = () => {
+    fetchData();
+  };
 
   return (
     <div>
       <Navbar />
-        <Item data={cocktails} pageHeading="Coctails"/>
+      <Item
+        data={cocktailsData}
+        pageHeading="Coctails"
+        handleLoadClick={handleClick}
+      />
     </div>
   );
 }
-export async function getStaticProps(context) {
+export async function getStaticProps(LastId) {
   const res = await fetch("https://golang-food-api.herokuapp.com/getCocktails");
   const cocktails = await res.json();
-
+  let recipes = cocktails.Recipes;
   return {
-    props: { cocktails }, // props will be passed to the page
+    props: { recipes }, // props will be passed to the page
   };
 }

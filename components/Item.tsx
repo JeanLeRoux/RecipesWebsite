@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PaperClipIcon, StarIcon, XIcon } from "@heroicons/react/outline";
 
-export default function Item({ data, pageHeading }) {
+export default function Item({ data, pageHeading, handleLoadClick }) {
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
@@ -39,9 +39,11 @@ export default function Item({ data, pageHeading }) {
     <div>
       <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-extrabold text-gray-900">{pageHeading}</h2>
+          <h2 className="text-2xl font-extrabold text-gray-900">
+            {pageHeading}
+          </h2>
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-6">
-            {data.Recipes.map((item) => (
+            {data.map((item) => (
               <div
                 className="group"
                 key={item.Id}
@@ -67,6 +69,15 @@ export default function Item({ data, pageHeading }) {
                 <h3 className="mt-4 text-sm text-gray-700">{item.Name}</h3>
               </div>
             ))}
+          </div>
+          <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-3 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-3 mt-6">
+            <button
+
+              onClick={()=>handleLoadClick()}
+              className="mt-6 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 xl:col-start-2 xl:col-span-1 lg:col-start-2 lg:col-span-1 sm:col-start-2 sm:col-span-1"
+            >
+              More Cocktails
+            </button>
           </div>
         </div>
       </div>
@@ -165,7 +176,10 @@ export default function Item({ data, pageHeading }) {
                         <div className="border-t border-gray-200">
                           <dl>
                             {ingredientHeadings.map((heading, index) => (
-                              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6" key={heading}>
+                              <div
+                                className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                                key={heading}
+                              >
                                 <dt className="text-sm font-medium text-gray-500">
                                   {heading}
                                 </dt>
@@ -174,11 +188,16 @@ export default function Item({ data, pageHeading }) {
                                     role="list"
                                     className="border border-gray-200 rounded-md divide-y divide-gray-200"
                                   >
-                                    {ingredients[index].map((ingredient, index) => (
-                                      <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm" key={index}>
-                                        {ingredient}
-                                      </li>
-                                    ))}
+                                    {ingredients[index].map(
+                                      (ingredient, index) => (
+                                        <li
+                                          className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                                          key={index}
+                                        >
+                                          {ingredient}
+                                        </li>
+                                      )
+                                    )}
                                   </ul>
                                 </dd>
                               </div>
@@ -197,4 +216,3 @@ export default function Item({ data, pageHeading }) {
     </div>
   );
 }
-
