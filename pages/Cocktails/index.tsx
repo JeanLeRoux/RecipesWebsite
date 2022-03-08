@@ -13,7 +13,7 @@ export default function Home({ recipes }) {
     const req = await fetch(url);
     const newData = await req.json();
     setLastId(newData.LastId);
-    return setCocktailsData([...cocktailsData, ...newData.Recipes]);
+    setCocktailsData([...cocktailsData, ...newData.Recipes]);
   };
 
   const handleClick = () => {
@@ -25,7 +25,7 @@ export default function Home({ recipes }) {
       <Navbar />
       <Item
         data={cocktailsData}
-        pageHeading="Coctails"
+        pageHeading="Cocktails"
         handleLoadClick={handleClick}
       />
     </div>

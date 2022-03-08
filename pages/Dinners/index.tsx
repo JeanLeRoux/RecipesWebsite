@@ -13,7 +13,7 @@ export default function Dinners({ recipes }) {
     const req = await fetch(url);
     const newData = await req.json();
     setLastId(newData.LastId);
-    return setDinnersData([...dinnersData, ...newData.Recipes]);
+    setDinnersData([...dinnersData, ...newData.Recipes]);
   };
 
   const handleClick = () => {
