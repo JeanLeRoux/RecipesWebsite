@@ -16,8 +16,8 @@ export default function Home({ recipes }) {
     setCocktailsData([...cocktailsData, ...newData.Recipes]);
   };
 
-  const handleClick = () => {
-    fetchData();
+  const handleClick = async () => {
+    await fetchData();
   };
 
   return (

@@ -14,11 +14,11 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
   const [method, setMethod] = useState([]);
   const [load, setLoading] = useState(false);
 
-  const loadClick = () => {
-    setLoading(()=>true);
-    handleLoadClick();
-    setLoading(()=>false);
-  }
+  const loadClick = async () => {
+    setLoading(() => true);
+    await handleLoadClick();
+    setLoading(() => false);
+  };
 
   const handleClick = (
     image: string,
@@ -150,7 +150,7 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <div className="flex text-base text-left transform transition w-full md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-                <div className="w-full relative flex items-center bg-white px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+                <div className="w-full relative bg-white px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                   <button
                     type="button"
                     className="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
@@ -205,65 +205,59 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
                             </span>
                           </div>
                         </div>
-                        <div className="border-t border-gray-200">
-                          <dl>
-                            {ingredientHeadings.map((heading, index) => (
-                              <div
-                                className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                                key={heading}
-                              >
-                                <dt className="text-sm font-medium text-gray-500">
-                                  {heading}
-                                </dt>
-                                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                  <ul
-                                    role="list"
-                                    className="border border-gray-200 rounded-md divide-y divide-gray-200"
-                                  >
-                                    {ingredients[index].map(
-                                      (ingredient, index) => (
-                                        <li
-                                          className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
-                                          key={index}
-                                        >
-                                          {ingredient}
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                </dd>
-                              </div>
-                            ))}
-                          </dl>
-                          <dl>
-                              <div
-                                className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                              >
-                                <dt className="text-sm font-medium text-gray-500">
-                                  Method
-                                </dt>
-                                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                  <ul
-                                    role="list"
-                                    className="border border-gray-200 rounded-md divide-y divide-gray-200"
-                                  >
-                                    {method.map(
-                                      (step, index) => (
-                                        <li
-                                          className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
-                                          key={index}
-                                        >
-                                          {step}
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                </dd>
-                              </div>
-                          </dl>
-                        </div>
                       </section>
                     </div>
+                  </div>
+                  <div className="mt-10 border-t border-gray-200">
+                    <dl>
+                      {ingredientHeadings.map((heading, index) => (
+                        <div
+                          className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                          key={heading}
+                        >
+                          <dt className="text-lg font-medium text-gray-500">
+                            {heading}
+                          </dt>
+                          <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3">
+                            <ul
+                              role="list"
+                              className="border border-gray-200 rounded-md divide-y divide-gray-200"
+                            >
+                              {ingredients[index].map((ingredient, index) => (
+                                <li
+                                  className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                                  key={index}
+                                >
+                                  {ingredient}
+                                </li>
+                              ))}
+                            </ul>
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <dl>
+                      <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt className="text-lg font-medium text-gray-500">
+                          Method
+                        </dt>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3">
+                          <ul
+                            role="list"
+                            className="border border-gray-200 rounded-md divide-y divide-gray-200"
+                          >
+                            {method.map((step, index) => (
+                              <li
+                                className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                                key={index}
+                              >
+                                {step}
+                              </li>
+                            ))}
+                          </ul>
+                        </dd>
+                      </div>
+                    </dl>
                   </div>
                 </div>
               </div>

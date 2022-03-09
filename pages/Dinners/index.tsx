@@ -16,8 +16,8 @@ export default function Dinners({ recipes }) {
     setDinnersData([...dinnersData, ...newData.Recipes]);
   };
 
-  const handleClick = () => {
-    fetchData();
+  const handleClick = async () => {
+    await fetchData();
   };
   return (
     <div>
