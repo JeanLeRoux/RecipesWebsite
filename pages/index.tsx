@@ -1,5 +1,13 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import Image from 'next/image';
+import first from '../public/assets/1.jpg'
+import second from '../public/assets/2.jpg'
+import third from '../public/assets/3.jpg'
+import fourth from '../public/assets/4.jpg'
+import fifth from '../public/assets/5.jpg'
+import sixth from '../public/assets/6.jpg'
+import seventh from '../public/assets/7.jpg'
 
 export default function Home() {
   return (
@@ -32,38 +40,15 @@ export default function Home() {
                     <div className="flex items-center space-x-6 lg:space-x-8">
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                          <img
-                            src="/assets/1.jpg"
+                          <Image
+                            src={first}
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="/assets/2.jpg"
-                            alt=""
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                      </div>
-                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="/assets/3.jpg"
-                            alt=""
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="/assets/4.jpg"
-                            alt=""
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="/assets/5.jpg"
+                          <Image
+                            src={second}
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
@@ -71,15 +56,38 @@ export default function Home() {
                       </div>
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="/assets/6.jpg"
+                          <Image
+                            src={third}
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="/assets/7.jpg"
+                          <Image
+                            src={fourth}
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <Image
+                            src={fifth}
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <Image
+                            src={sixth}
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <Image
+                            src={seventh}
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
