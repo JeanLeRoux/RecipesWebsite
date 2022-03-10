@@ -64,19 +64,20 @@ export default function Dinners() {
     let loadIndex = 0;
     if (category == "Cocktails") {
       url = "https://golang-food-api.herokuapp.com/randomCocktail";
+      loadIndex = 1;
     } else if (category == "Dinner") {
       url = "https://golang-food-api.herokuapp.com/randomDinner";
-      loadIndex = 1;
+      loadIndex = 2;
     } else {
       url = "https://golang-food-api.herokuapp.com/randomDessert";
-      loadIndex = 2;
     }
-    // let loadingItems = load;
-    // loadingItems[loadIndex] = true;
-    // setLoading(()=>loadingItems)
+    let loadingItems = load;
+    loadingItems[loadIndex] = true;
+    console.log(loadingItems)
+    setLoading(()=>loadingItems)
     await fetchData(url);
-    // loadingItems[loadIndex] = false;
-    // setLoading(()=>loadingItems)
+    loadingItems[loadIndex] = false;
+    setLoading(()=>loadingItems)
     setOpen(true);
   };
   return (
@@ -260,12 +261,13 @@ export default function Dinners() {
                           <dt className="text-lg font-medium text-gray-500">
                             {heading}
                           </dt>
+                      
                           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3">
                             <ul
                               role="list"
                               className="border border-gray-200 rounded-md divide-y divide-gray-200"
                             >
-                              {ingredients[index].map((ingredient, index) => (
+                              {ingredients[index]?.map((ingredient, index) => (
                                 <li
                                   className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
                                   key={index}
