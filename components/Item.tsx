@@ -9,6 +9,8 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
   const [ratings, setRatings] = useState(0);
   const [stars, setStars] = useState(0);
   const [description, setDescription] = useState("");
+  const [serves, setServes] = useState("");
+  const [difficulty, setDifficulty] = useState("");
   const [ingredientHeadings, setIngredientHeadings] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [method, setMethod] = useState([]);
@@ -20,6 +22,9 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
     setLoading(() => false);
   };
 
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
   const handleClick = (
     image: string,
     name: string,
@@ -28,7 +33,9 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
     description: string,
     IngredientHeadings: [string],
     ingredients: [],
-    method: []
+    method: [],
+    serves: string,
+    difficulty: string
   ) => {
     setOpen(true);
     setImage(image);
@@ -40,10 +47,9 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
     setIngredientHeadings(IngredientHeadings);
     setIngredients(ingredients);
     setMethod(method);
+    setServes(serves)
+    setDifficulty(difficulty)
   };
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
 
   return (
     <div>
@@ -66,7 +72,9 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
                     item.Description,
                     item.IngredientHeadings,
                     item.Ingredients,
-                    item.Method
+                    item.Method,
+                    item.Serves,
+                    item.Difficulty
                   )
                 }
               >
@@ -204,6 +212,27 @@ export default function Item({ data, pageHeading, handleLoadClick }) {
                               {ratings} reviews
                             </span>
                           </div>
+                        </div>
+
+                        <div className="border-t border-gray-200">
+                          <dl>
+                            <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                              <dt className="text-sm font-medium text-gray-500">
+                                Difficulty
+                              </dt>
+                              <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {difficulty}
+                              </dd>
+                            </div>
+                            <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                              <dt className="text-sm font-medium text-gray-500">
+                              Serves
+                              </dt>
+                              <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                              {serves}
+                              </dd>
+                            </div>
+                          </dl>
                         </div>
                       </section>
                     </div>
