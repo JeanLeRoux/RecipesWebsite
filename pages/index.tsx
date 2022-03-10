@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -12,7 +13,12 @@ export default function Home() {
                 Struggling for ideas
               </h1>
               <p className="mt-4 text-xl text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo. Nunc id cursus metus aliquam eleifend mi in nulla posuere. Odio facilisis mauris sit amet massa vitae tortor. Quam id leo in vitae turpis massa sed elementum. Neque laoreet suspendisse interdum consectetur libero. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Vel turpis nunc eget lorem dolor. Dui nunc mattis enim ut.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam
+                phasellus vestibulum lorem sed risus ultricies tristique nulla.
+                Porttitor rhoncus dolor purus non enim praesent elementum
+                facilisis leo. Nunc id cursus metus aliquam eleifend mi in nulla
+                posuere. Odio facilisis mauris sit amet massa vitae tortor.
               </p>
             </div>
             <div>
@@ -82,6 +88,11 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                <Link href="Random">
+                  <a className="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">
+                    Random Recipes
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
